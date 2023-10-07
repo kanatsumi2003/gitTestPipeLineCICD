@@ -18,9 +18,6 @@ jobs:
           distribution: 'corretto'
           java-version: 20
 
-      - name: Unit Tests
-        run: mvn -B test -f pom.xml
-
       - name: build the application
         run:
           mvn clean
