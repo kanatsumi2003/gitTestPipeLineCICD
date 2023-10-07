@@ -21,7 +21,7 @@ jobs:
       - name: build the application
         run: |
           mvn clean
-          mvn -B package --file pom.xml
+          mvn -B package --file demo/demo/pom.xml
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
