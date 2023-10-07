@@ -139,14 +139,11 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.2.0</version> <!-- Use the appropriate version -->
 				<configuration>
-					<filters>
-							<artifact>*:*</artifact>
-							<excludes>
+							<addDefaultExcludes>
 								<exclude>META-INF/*.SF</exclude>
 								<exclude>META-INF/*.DSA</exclude>
 								<exclude>META-INF/*.RSA</exclude>
-							</excludes>
-					</filters>
+							</addDefaultExcludes>
 					<!-- Additional configuration. -->
 				</configuration>
 			</plugin>
