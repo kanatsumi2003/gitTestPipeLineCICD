@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build-deploy:
+  buildx:
     name: build and deploy spring boot app
     runs-on: windows-latest
     steps:
@@ -22,6 +22,12 @@ jobs:
         run: |
           mvn clean
           mvn -B package --file demo/pom.xml
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
       - name: Build Docker Image
         uses: docker/build-push-action@v2
