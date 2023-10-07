@@ -1,0 +1,25 @@
+name: Build an Deploy Spring application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-deploy:
+    name: build and deploy spring boot app
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: action/checkout@v3
+      - name: Setup JDK 20
+        uses: action/setup-java@v3
+        with:
+          distribution: 'correto'
+          java-version: 20
+      - name: build the application
+        run: |
+          mvn clean
+          mvn -B package --file pom.xml
+          
+
