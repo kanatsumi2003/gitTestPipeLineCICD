@@ -53,3 +53,5 @@ jobs:
           context: .
           push: true
           tags: user/app:latest
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
