@@ -24,12 +24,12 @@ jobs:
           mvn -B package --file demo/pom.xml
           
       - name: Build Docker Image
-        uses: actions/build-push-action@v2
+        uses: docker/build-push-action@v2
         with:
           context: .
           dockerfile: Dockerfile
           push: false
-          tags: ${{ secrets.DOCKER_USERNAME }}//spring-boot-for-beginners
+          tags: ${{ secrets.DOCKER_USERNAME }}//spring-boot-for-beginners:latest
 
       - name: Login to docker hub
         uses: docker/login-action@v1
