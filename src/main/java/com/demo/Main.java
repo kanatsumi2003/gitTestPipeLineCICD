@@ -17,6 +17,10 @@ import java.util.List;
 @SpringBootApplication
 public class Main {
 
+    @GetMapping("hello")
+    public String hello(){
+        return "hello";
+    }
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
