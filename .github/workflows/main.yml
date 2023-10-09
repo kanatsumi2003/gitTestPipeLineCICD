@@ -48,6 +48,19 @@ jobs:
           push: true
           tags: kanatsumi2003/springboot-demo:latest
 
+  deploy:
+    needs: buildx
+    runs-on: demo-deploy
+    steps:
+      - name: Pull image from docker hub
+        run: docker pull kanatsumi2003/springboot-demo:latest
+      - name: Delete old container
+        run: docker rm -f springboot-demo-container
+      - name: Run docker container
+        run: docker run -d -p 8080:8080 --name springboot-demo-container kanatsumi2003/springboot-demo
+
+
+
 #      -
 #        name: Checkout
 #        uses: actions/checkout@v3
